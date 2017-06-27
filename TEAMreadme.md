@@ -343,40 +343,49 @@ curl -X DELETE "http://localhost:5000/rackhd/hook?hook_id=<Enter Hook ID here>" 
 
 ######################HAKIM'S############################
 
-Token 
+Hakim Razalee [IPMI Poller && IBMS]
+
+============Rack-HD Token============================
+
+GET-TOKEN:
+
 curl -u admin:admin http://localhost:5000/rackhd/login -d '{"username":"admin","password":"admin123"}' -H "Content-Type: application/json" -X POST | python -m json.tool
 
+=====================IPMI POLLER============================
 
-IPMI Poller
+IPMI CREATE:
 
-Create
-curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/create -d '{"type":"ipmi","node":"54daadd764f1a8f1088fdc42","command":"power"}' -H "Content-type: application/json" -X POST -H 'token: ' | python -m json.tool
+curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/create -d '{"type":"ipmi","node":"54daadd764f1a8f1088fdc42","command":"power"}' -H "Content-type: application/json" -X POST -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTgwMTY2NDAsImV4cCI6MTQ5ODEwMzA0MH0.CRCsEGp4Hb_mFYykWgmsN6CuaCtfBbzgOUv09C-_HLA ' | python -m json.tool
 
-Get
-curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/read -X GET -H 'token:' | python -m json.tool
+IPMI READ:
 
-Update
- curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/update -d '{"pid":"59495d5004a9f71405c06eec", "paused":"false","pollInterval":"10000"}' -H "Content-type: application/json" -X PATCH -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
+curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/read -X GET -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTgwMTY2NDAsImV4cCI6MTQ5ODEwMzA0MH0.CRCsEGp4Hb_mFYykWgmsN6CuaCtfBbzgOUv09C-_HLA ' | python -m json.tool
 
-Delete
-curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/delete -d '{"pid":" "}' -X DELETE -H "Content-type: application/json" -H 'token: '
+IPMI UPDATE:
 
+curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/update -d '{"pid":"59495d5004a9f71405c06eec", "paused":"true","pollInterval":"10000"}' -H "Content-type: application/json" -X PATCH -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTgwMTY2NDAsImV4cCI6MTQ5ODEwMzA0MH0.CRCsEGp4Hb_mFYykWgmsN6CuaCtfBbzgOUv09C-_HLA ' | python -m json.tool
 
+IPMI DELETE:
 
+curl -u admin:admin http://localhost:5000/rackhd/ipmipollers/delete -d '{"pid":" "}' -X DELETE -H "Content-type: application/json" -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTgwMTY2NDAsImV4cCI6MTQ5ODEwMzA0MH0.CRCsEGp4Hb_mFYykWgmsN6CuaCtfBbzgOUv09C-_HLA '
 
-IBMS
+============IBMS============================
 
-Create
+IBMS CREATE:
+
 curl -u admin:admin http://localhost:5000/rackhd/ibms/create -d '{"id":"591c569c087752c67428e4b3","nodeId":"590cbcbf29ba9e40471c9f3c","service":"snmp-ibm-service","community":"public","host":"172.31.128.2"}' -H "Content-type: application/json" -X PUT -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
 
-GET
- curl -u admin:admin http://localhost:5000/rackhd/ibms/read -X GET -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
+IBMS READ:
 
-DELETE
-curl -u admin:admin http://localhost:5000/rackhd/ibms/delete -d '{"id":"5949665d04a9f71405c06eed"}' -X DELETE -H "Content-type: application/json" -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' 
+curl -u admin:admin http://localhost:5000/rackhd/ibms/read -X GET -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
 
-UPDATE
-curl -u admin:admin http://localhost:5000/rackhd/ibms/update -d '{"id":"594975b104a9f71405c06eef","service":"snmp-ibm-service","community":"public","host":"172.31.128.198"}' -H "Content-type: application/json" -X PATCH -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
+IBMS UPDATE:
+
+curl -u admin:admin http://localhost:5000/rackhd/ibms/update -d '{"id":"5949f7f604a9f71405c06ef5","service":"snmp-ibm-service","community":"public","host":"172.31.128.198"}' -H "Content-type: application/json" -X PATCH -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg' | python -m json.tool
+
+IBMS DELETE:
+
+curl -u admin:admin http://localhost:5000/rackhd/ibms/delete -d '{"id":”5949f7f604a9f71405c06ef5"}' -X DELETE -H "Content-type: application/json" -H 'token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJpYXQiOjE0OTc5Nzg0MDQsImV4cCI6MTQ5ODA2NDgwNH0.TVxOtIbMwyQfkAaOnVPcoLCQopoM2tC3fcS7LbHJuGg'
 
 ######################END################################
 
