@@ -80,7 +80,7 @@ def redfish_delsession():
 
 
 #######################################################################
-          HAROLD'S CRUD: NODES, TAGS, HOOKS
+          #HAROLD'S CRUD: NODES, TAGS, HOOKS
   #######################################################################
 				#NODES
    #####################################################################
@@ -270,7 +270,7 @@ def deletehook():
 	r = requests.delete(url, headers=headers, verify=False)
 	return r.text
 #########################################################################
-            FUNG LOON'S OBMS AND RACKHD ROLES CRUD 
+           # FUNG LOON'S OBMS AND RACKHD ROLES CRUD 
 #########################################################################
 @app.route('/rackhd/obms/create', methods=['PUT'])
 @auth.login_required
@@ -518,7 +518,7 @@ def create_account():
   
   
  ###############################################################################
-                  Serena's CRUD: RACKHD ACCOUNTS
+                  #Serena's CRUD: RACKHD ACCOUNTS
 ################################################################################
 
 @app.route('/')
@@ -617,7 +617,7 @@ def del_users():
         return response.text
         
 ###############################################################################
-              Fadhli's CRUD: MERTRIC POLLERS & SKUs
+              #Fadhli's CRUD: MERTRIC POLLERS & SKUs
 ###############################################################################
 
 @app.route('/rackhd/skus/read', methods=['GET'])
@@ -794,7 +794,7 @@ def delete_metricpollers():
         r = requests.delete(url, headers=headers, verify=False)
         return r.text
 #########################################################################
-                    HAKIM'S CRUD: IPMI POLLER & IBMS
+                    #HAKIM'S CRUD: IPMI POLLER & IBMS
 #########################################################################
 
 @app.route('/rackhd/ipmipollers/read', methods=['GET'])
