@@ -1,3 +1,12 @@
+WORKLOAD DISTRIBUTION
+---------------------
+
+- FADHLI: SKU && MetricPollers
+- FUNG LOON: OBMS AND RACKHD ROLES
+- HAKIM: IPMI POLLER & IBMS
+- SERENA: RACKHD ACCOUNTS
+- WEI YANG: NODES, TAGS, HOOKS
+
 ######################TEAM REDFISH README##############
 
 ######################FADHLI's#########################
