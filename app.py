@@ -33,7 +33,7 @@ def method_not_allowed(error):
 def duplicatefound(error):
         return make_response(jsonify({'error':'DUplicate item found'}), 405)
 
-##################### LOGIN, SESSIONS,ETC ##########################
+##################### LOGIN, SESSIONS,ETC #########################
 @app.route('/rackhd/login', methods=['POST'])
 @auth.login_required
 def rackhd_login():
